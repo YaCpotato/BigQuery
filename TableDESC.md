@@ -10,7 +10,8 @@
 ### totals.timeOnSite: null,
 ### totals.bounces: 1,
 ### totals.transactions: null,
-### totals.transactionRevenue: null,
+### totals.transactionRevenue
+そのトランザクションの総収益
 ### totals.newVisits
 新規かリピートか（1 or null）
 確認クエリ
