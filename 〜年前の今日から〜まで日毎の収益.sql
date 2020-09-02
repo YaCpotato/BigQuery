@@ -1,6 +1,6 @@
 SELECT 
   date,
-   SUM(totals.totalTransactionRevenue)
+   SUM(totals.totalTransactionRevenue) / 1000000
 FROM
     `bigquery-public-data.google_analytics_sample.ga_sessions_*`
   WHERE
