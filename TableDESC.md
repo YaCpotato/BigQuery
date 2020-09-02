@@ -4,13 +4,24 @@
 ### visitStartTime: 1499068772
 ### date: 20170703,
 ### totals.visits: 1,
+
 ### totals.hits: 1,
 ### totals.pageviews: 1,
 ### totals.timeOnSite: null,
 ### totals.bounces: 1,
 ### totals.transactions: null,
 ### totals.transactionRevenue: null,
-### totals.newVisits: null,
+### totals.newVisits
+新規かリピートか（1 or null）
+確認クエリ
+```sql
+SELECT 
+   DISTINCT totals.newVisits
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`,unnest(hits) as hits
+  WHERE
+    _TABLE_SUFFIX = '20160801'
+```
 ### totals.screenviews: null,
 ### totals.uniqueScreenviews: null,
 ### totals.timeOnScreen: null,
