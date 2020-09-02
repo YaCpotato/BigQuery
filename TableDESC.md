@@ -10,8 +10,9 @@
 ### totals.timeOnSite: null,
 ### totals.bounces: 1,
 ### totals.transactions: null,
+そのデータはトランザクションデータか否か(1 or null)
 ### totals.transactionRevenue
-そのトランザクションの総収益
+サポート終了しているらしい
 ### totals.newVisits
 新規かリピートか（1 or null）
 確認クエリ
@@ -27,6 +28,21 @@ FROM
 ### totals.uniqueScreenviews: null,
 ### totals.timeOnScreen: null,
 ### totals.totalTransactionRevenue: null,
+そのデータのトランザクションによる総収益
+
+```sql
+SELECT 
+  date,
+   SUM(totals.totalTransactionRevenue)
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+  WHERE
+    _TABLE_SUFFIX BETWEEN '20160801' AND '20160831'
+   AND
+    totals.transactions = 1
+GROUP BY date
+ORDER BY date
+```
 ### totals.sessionQualityDim: null
 
 ### trafficSource.referralPath: null,
