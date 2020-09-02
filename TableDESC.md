@@ -18,7 +18,7 @@
 SELECT 
    DISTINCT totals.newVisits
 FROM
-    `bigquery-public-data.google_analytics_sample.ga_sessions_*`,unnest(hits) as hits
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
   WHERE
     _TABLE_SUFFIX = '20160801'
 ```
