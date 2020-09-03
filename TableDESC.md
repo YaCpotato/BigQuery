@@ -9,6 +9,7 @@
 ### totals.pageviews: 1,
 ### totals.timeOnSite: null,
 ### totals.bounces: 1,
+直帰数
 ### totals.transactions: null,
 そのデータはトランザクションデータか否か(1 or null)
 ### totals.transactionRevenue
