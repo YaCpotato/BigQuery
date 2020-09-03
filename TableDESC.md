@@ -10,7 +10,17 @@
 そのセッションのページビュー数
 ### totals.timeOnSite: null,
 ### totals.bounces: 1,
-直帰数
+直帰数 (1 or null)
+```sql
+SELECT 
+  date,
+  totals.bounces
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+  WHERE
+    _TABLE_SUFFIX BETWEEN '20160801' AND '20160810'
+ORDER BY date
+```
 ### totals.transactions: null,
 そのデータはトランザクションデータか否か(1 or null)
 ### totals.transactionRevenue
