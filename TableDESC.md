@@ -7,6 +7,7 @@
 
 ### totals.hits: 1,
 ### totals.pageviews: 1,
+そのセッションのページビュー数
 ### totals.timeOnSite: null,
 ### totals.bounces: 1,
 直帰数
