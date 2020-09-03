@@ -9,6 +9,19 @@
 ### totals.pageviews: 1,
 そのセッションのページビュー数
 ### totals.timeOnSite: null,
+セッション合計時間
+```sql
+SELECT 
+  date,
+  totals.timeOnSite
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+  WHERE
+    _TABLE_SUFFIX BETWEEN '20160801' AND '20160810'
+ORDER BY date
+```
+### totals.timeOnScreen: null,
+とれない
 ### totals.bounces: 1,
 直帰数 (1 or null)
 ```sql
@@ -38,7 +51,6 @@ FROM
 ```
 ### totals.screenviews: null,
 ### totals.uniqueScreenviews: null,
-### totals.timeOnScreen: null,
 ### totals.totalTransactionRevenue: null,
 そのデータのトランザクションによる総収益
 
