@@ -91,6 +91,18 @@ FROM
     _TABLE_SUFFIX BETWEEN '20160801' AND '20160810'
 
 ```
+
+```sql
+SELECT 
+  DISTINCT trafficSource.medium,
+  COUNT( trafficSource.medium )
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`,unnest(hits)
+  WHERE
+    _TABLE_SUFFIX BETWEEN '20160801' AND '20160810'
+GROUP BY trafficSource.medium
+```
+
 ### trafficSource.keyword: null,
 ### trafficSource.adContent: null,
 ### trafficSource.adwordsClickInfo.campaignId: null,
