@@ -146,7 +146,8 @@ FROM
 ### hits.hour: 0,
 ### hits.minute: 59,
 ### hits.isSecure: null,
-### hits.isInteraction: true,
+### hits.isInteraction: true
+falseの場合、そのセッションで他のイベントが発生しなかった場合。直帰となる
 ### hits.isEntrance: true,
 ### hits.isExit: true,
 ### hits.referer: null,
