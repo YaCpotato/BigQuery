@@ -160,8 +160,39 @@ GROUP BY trafficSource.medium
 ### hits.isSecure: null,
 ### hits.isInteraction: true
 falseの場合、そのセッションで他のイベントが発生しなかった場合。直帰となる
-### hits.isEntrance: true,
-### hits.isExit: true,
+### hits.isExit, hits.isEntrance
+離脱ページか否か、ランディングページか否か
+
+```sql
+SELECT
+  date,
+  SUM(totals.pageviews) as TotalPageviews
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,UNNEST(hits) as h
+WHERE
+  _TABLE_SUFFIX BETWEEN
+      FORMAT_DATE('%Y%m%d',
+        DATE_SUB(
+          CURRENT_DATE('Asia/Tokyo'),
+          INTERVAL 4 YEAR
+        )
+      ) 
+      AND
+      FORMAT_DATE('%Y%m%d',
+        DATE_ADD(
+          DATE_SUB(
+            CURRENT_DATE('Asia/Tokyo'),
+            INTERVAL 4 YEAR
+          ), 
+         INTERVAL 1 MONTH)
+      ) 
+    AND (
+      h.isEntrance = true AND h.isExit = true 
+    )
+        
+GROUP BY date
+ORDER BY date
+```
+
 ### hits.referer: null,
 ### hits.transaction": null,
 ### hits.tem": null,
